@@ -521,7 +521,7 @@
             // 
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("宋体", 14F);
-            this.labelTime.Location = new System.Drawing.Point(3, 5);
+            this.labelTime.Location = new System.Drawing.Point(5, 5);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(47, 19);
             this.labelTime.TabIndex = 8;
