@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="mytable" msprop:Generator_TableClassName="mytableDataTable" msprop:Generator_TableVarName="tablemytable" msprop:Generator_TablePropName="mytable" msprop:Generator_RowDeletingName="mytableRowDeleting" msprop:Generator_UserTableName="mytable" msprop:Generator_RowChangingName="mytableRowChanging" msprop:Generator_RowEvHandlerName="mytableRowChangeEventHandler" msprop:Generator_RowDeletedName="mytableRowDeleted" msprop:Generator_RowEvArgName="mytableRowChangeEvent" msprop:Generator_RowChangedName="mytableRowChanged" msprop:Generator_RowClassName="mytableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LSH" msprop:Generator_ColumnVarNameInTable="columnLSH" msprop:Generator_ColumnPropNameInRow="LSH" msprop:Generator_ColumnPropNameInTable="LSHColumn" msprop:Generator_UserColumnName="LSH" type="xs:string" minOccurs="0" />
+              <xs:element name="VIN" msprop:Generator_ColumnVarNameInTable="columnVIN" msprop:Generator_ColumnPropNameInRow="VIN" msprop:Generator_ColumnPropNameInTable="VINColumn" msprop:Generator_UserColumnName="VIN" type="xs:string" minOccurs="0" />
+              <xs:element name="XH" msprop:Generator_ColumnVarNameInTable="columnXH" msprop:Generator_ColumnPropNameInRow="XH" msprop:Generator_ColumnPropNameInTable="XHColumn" msprop:Generator_UserColumnName="XH" type="xs:string" minOccurs="0" />
+              <xs:element name="JCSJ" msprop:Generator_ColumnVarNameInTable="columnJCSJ" msprop:Generator_ColumnPropNameInRow="JCSJ" msprop:Generator_ColumnPropNameInTable="JCSJColumn" msprop:Generator_UserColumnName="JCSJ" type="xs:string" minOccurs="0" />
+              <xs:element name="RESULT" msprop:Generator_ColumnVarNameInTable="columnRESULT" msprop:Generator_ColumnPropNameInRow="RESULT" msprop:Generator_ColumnPropNameInTable="RESULTColumn" msprop:Generator_UserColumnName="RESULT" type="xs:string" minOccurs="0" />
+              <xs:element name="LL" msprop:Generator_ColumnVarNameInTable="columnLL" msprop:Generator_ColumnPropNameInRow="LL" msprop:Generator_ColumnPropNameInTable="LLColumn" msprop:Generator_UserColumnName="LL" type="xs:string" minOccurs="0" />
+              <xs:element name="LR" msprop:Generator_ColumnVarNameInTable="columnLR" msprop:Generator_ColumnPropNameInRow="LR" msprop:Generator_ColumnPropNameInTable="LRColumn" msprop:Generator_UserColumnName="LR" type="xs:string" minOccurs="0" />
+              <xs:element name="RL" msprop:Generator_ColumnVarNameInTable="columnRL" msprop:Generator_ColumnPropNameInRow="RL" msprop:Generator_ColumnPropNameInTable="RLColumn" msprop:Generator_UserColumnName="RL" type="xs:string" minOccurs="0" />
+              <xs:element name="RR" msprop:Generator_ColumnVarNameInTable="columnRR" msprop:Generator_ColumnPropNameInRow="RR" msprop:Generator_ColumnPropNameInTable="RRColumn" msprop:Generator_UserColumnName="RR" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
