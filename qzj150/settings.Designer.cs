@@ -46,16 +46,34 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.labelCLHP = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxTurnTime = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxStableTime = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxZeroTime = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panelCLHP.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelCLHP
             // 
             this.panelCLHP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelCLHP.Controls.Add(this.panel7);
+            this.panelCLHP.Controls.Add(this.panel6);
+            this.panelCLHP.Controls.Add(this.panel5);
             this.panelCLHP.Controls.Add(this.panel4);
             this.panelCLHP.Controls.Add(this.panel3);
             this.panelCLHP.Controls.Add(this.button2);
@@ -254,6 +272,123 @@
             this.labelCLHP.Size = new System.Drawing.Size(0, 19);
             this.labelCLHP.TabIndex = 8;
             // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.textBoxTurnTime);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Location = new System.Drawing.Point(3, 156);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(441, 33);
+            this.panel5.TabIndex = 39;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 14F);
+            this.label4.Location = new System.Drawing.Point(363, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 19);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "秒";
+            // 
+            // textBoxTurnTime
+            // 
+            this.textBoxTurnTime.Font = new System.Drawing.Font("宋体", 14F);
+            this.textBoxTurnTime.Location = new System.Drawing.Point(178, 0);
+            this.textBoxTurnTime.Name = "textBoxTurnTime";
+            this.textBoxTurnTime.Size = new System.Drawing.Size(179, 29);
+            this.textBoxTurnTime.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 14F);
+            this.label7.Location = new System.Drawing.Point(6, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 19);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "转盘转动时间";
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.label8);
+            this.panel6.Controls.Add(this.textBoxStableTime);
+            this.panel6.Controls.Add(this.label9);
+            this.panel6.Location = new System.Drawing.Point(3, 193);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(441, 33);
+            this.panel6.TabIndex = 40;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("宋体", 14F);
+            this.label8.Location = new System.Drawing.Point(363, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 19);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "秒";
+            // 
+            // textBoxStableTime
+            // 
+            this.textBoxStableTime.Font = new System.Drawing.Font("宋体", 14F);
+            this.textBoxStableTime.Location = new System.Drawing.Point(178, 0);
+            this.textBoxStableTime.Name = "textBoxStableTime";
+            this.textBoxStableTime.Size = new System.Drawing.Size(179, 29);
+            this.textBoxStableTime.TabIndex = 12;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("宋体", 14F);
+            this.label9.Location = new System.Drawing.Point(6, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(123, 19);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "转盘稳定时间";
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.label10);
+            this.panel7.Controls.Add(this.textBoxZeroTime);
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Location = new System.Drawing.Point(3, 232);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(441, 33);
+            this.panel7.TabIndex = 41;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("宋体", 14F);
+            this.label10.Location = new System.Drawing.Point(363, 5);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(28, 19);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "秒";
+            // 
+            // textBoxZeroTime
+            // 
+            this.textBoxZeroTime.Font = new System.Drawing.Font("宋体", 14F);
+            this.textBoxZeroTime.Location = new System.Drawing.Point(178, 0);
+            this.textBoxZeroTime.Name = "textBoxZeroTime";
+            this.textBoxZeroTime.Size = new System.Drawing.Size(179, 29);
+            this.textBoxZeroTime.TabIndex = 12;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("宋体", 14F);
+            this.label11.Location = new System.Drawing.Point(6, 5);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(123, 19);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "回零稳定时间";
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -274,6 +409,12 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -298,5 +439,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxZEROXZ;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxZeroTime;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxStableTime;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxTurnTime;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -92,13 +92,13 @@ namespace childTest
         {
             if (System.IO.File.Exists(extlinkdir))
             {
-                ini.INIIO.WritePrivateProfileString("ExtLinkData", "Result_5147", model.LEFTTURNLEFT.ToString("0"), extlinkdir);
+                ini.INIIO.WritePrivateProfileString("ExtLinkData", "Result_5147", model.LEFTTURNLEFT.ToString("0.0"), extlinkdir);
                 ini.INIIO.WritePrivateProfileString("ExtLinkData", "Judge_5147", model.LEFTTURNLEFTPD=="合格"?"1":"2", extlinkdir);
-                ini.INIIO.WritePrivateProfileString("ExtLinkData", "Result_5148", model.LEFTTURNRIGHT.ToString("0"), extlinkdir);
+                ini.INIIO.WritePrivateProfileString("ExtLinkData", "Result_5148", model.LEFTTURNRIGHT.ToString("0.0"), extlinkdir);
                 ini.INIIO.WritePrivateProfileString("ExtLinkData", "Judge_5148", model.LEFTTURNRIGHTPD == "合格" ? "1" : "2", extlinkdir);
-                ini.INIIO.WritePrivateProfileString("ExtLinkData", "Result_5149", model.RIGHTTURNRIGHT.ToString("0"), extlinkdir);
+                ini.INIIO.WritePrivateProfileString("ExtLinkData", "Result_5149", model.RIGHTTURNRIGHT.ToString("0.0"), extlinkdir);
                 ini.INIIO.WritePrivateProfileString("ExtLinkData", "Judge_5149", model.RIGHTTURNRIGHTPD == "合格" ? "1" : "2", extlinkdir);
-                ini.INIIO.WritePrivateProfileString("ExtLinkData", "Result_5150", model.RIGHTTURNLEFT.ToString("0"), extlinkdir);
+                ini.INIIO.WritePrivateProfileString("ExtLinkData", "Result_5150", model.RIGHTTURNLEFT.ToString("0.0"), extlinkdir);
                 ini.INIIO.WritePrivateProfileString("ExtLinkData", "Judge_5150", model.RIGHTTURNLEFTPD == "合格" ? "1" : "2", extlinkdir);
                 ini.INIIO.WritePrivateProfileString("ExtLink", "ScanOK", "5", extlinkdir);
                 return true;
@@ -161,18 +161,22 @@ namespace childTest
         {
             try
             {
+                int STABLETIME =(int)( controller.stable_time * 20);
+                int TURNTIME = (int)(controller.turn_time * 20);
+                int ZEROTIME = (int)(controller.zero_time * 20);
                 string sendstring;
                 double leftangle, rightangle;
                 double leftturnleft = 0, leftturnright = 0, rightturnleft = 0, rightturnright = 0;
                 bool leftturnleftpd = false, leftturnrightpd = false, rightturnleftpd = false, rightturnrightpd = false,zhpd=false;
                 Msg(labelOrder3, panelOrder3, "请上转盘", 0);
                 int carAlready = 0;
-                while (carAlready < 30)
+                /*while (carAlready < 30)
                 {
                     if (!controller.isCarAlready) carAlready = 0;
                     else carAlready++;
                     Thread.Sleep(50);
-                }
+                }*/
+                Thread.Sleep(1500);
                 Msg(labelOrder3, panelOrder3, "车辆到位", 0);
                 Thread.Sleep(1000);
                 controller.setClearLeft(out sendstring);
@@ -190,7 +194,7 @@ namespace childTest
                 //    Msg(labelRightData, panelRightData, controller.angleRight.ToString("0.0"), 0, Math.Abs(controller.angleRight - vehiclemodel.RIGHTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC ? Color.Lime : Color.Red);
                 //   Thread.Sleep(50);
                 //}
-                while (stablecount < 40)//大于5度2秒以上
+                while (stablecount < TURNTIME)//大于5度2秒以上
                 {
                     leftangle = controller.angleLeft;
                     rightangle = controller.angleRight;
@@ -206,7 +210,7 @@ namespace childTest
                         {
                             leftturnleft = leftangle;
                             rightturnleft = rightangle;
-                            if ((Math.Abs(leftturnleft - vehiclemodel.LEFTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC) && (Math.Abs(-rightturnleft - vehiclemodel.RIGHTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC))//如果在合格范围内，开始计时
+                            if ((Math.Abs(leftturnleft - vehiclemodel.LEFTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC) && (Math.Abs(-rightturnleft - vehiclemodel.RIGHTTURNLEFT) <= vehiclemodel.RIGHTTURNLEFTWC))//如果在合格范围内，开始计时
                             {
                                 stablecount++;
                             }
@@ -217,7 +221,7 @@ namespace childTest
                         }
                         else//在检验模式下，要等到连续两秒左盘没有超过目前最大值时认为稳定
                         {
-                            if (leftangle > leftturnleft)
+                            /*if (leftangle > leftturnleft)
                             {
                                 leftturnleft = leftangle;
                                 rightturnleft = rightangle;
@@ -226,7 +230,18 @@ namespace childTest
                             else
                             {
                                 stablecount++;
+                            }*/
+                            leftturnleft = leftangle;
+                            rightturnleft = rightangle;
+                            stablecount++;
+                           /* if ((Math.Abs(leftturnleft - vehiclemodel.LEFTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC) && (Math.Abs(-rightturnleft - vehiclemodel.RIGHTTURNLEFT) <= vehiclemodel.RIGHTTURNLEFTWC))//如果在合格范围内，开始计时
+                            {
+                                stablecount++;
                             }
+                            else
+                            {
+                                stablecount = 0;
+                            }*/
                         }
                         Msg(labelLzlldata, panelLzlldata, leftturnleft.ToString("0.0"), 0, Math.Abs(leftturnleft - vehiclemodel.LEFTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC ? Color.Lime : Color.Red);
                         Msg(labelRzlldata, panelRzlldata, rightturnleft.ToString("0.0"), 0, Math.Abs(-rightturnleft - vehiclemodel.RIGHTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC ? Color.Lime : Color.Red);
@@ -235,7 +250,7 @@ namespace childTest
                 }
                 stablecount = 0;
                 Msg(labelOrder3, panelOrder3, "稳定1秒", 0);
-                while (stablecount < 20)
+                while (stablecount < STABLETIME)
                 {
                     leftangle = controller.angleLeft;
                     rightangle = controller.angleRight;
@@ -262,7 +277,7 @@ namespace childTest
                         }
                         else//在检验模式下，要等到连续两秒左盘没有超过目前最大值时认为稳定
                         {
-                            if (leftangle > leftturnleft)
+                            /*if (leftangle > leftturnleft)
                             {
                                 leftturnleft = leftangle;
                                 rightturnleft = rightangle;
@@ -271,7 +286,11 @@ namespace childTest
                             else
                             {
                                 stablecount++;
-                            }
+                            }*/
+
+                            leftturnleft = leftangle;
+                            rightturnleft = rightangle;
+                            stablecount++;
                         }
                         Msg(labelLzlldata, panelLzlldata, leftturnleft.ToString("0.0"), 0, Math.Abs(leftturnleft - vehiclemodel.LEFTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC ? Color.Lime : Color.Red);
                         Msg(labelRzlldata, panelRzlldata, rightturnleft.ToString("0.0"), 0, Math.Abs(-rightturnleft - vehiclemodel.RIGHTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC ? Color.Lime : Color.Red);
@@ -280,7 +299,7 @@ namespace childTest
                 }
                 leftturnleftpd = (Math.Abs(leftturnleft - vehiclemodel.LEFTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC);
                 Msg(labelllpd, panelllpd, leftturnleftpd ? "○" : "×", 0, leftturnleftpd ? Color.Lime : Color.Red);
-                rightturnleftpd = (Math.Abs(-rightturnleft - vehiclemodel.RIGHTTURNLEFT) <= vehiclemodel.LEFTTURNLEFTWC);
+                rightturnleftpd = (Math.Abs(-rightturnleft - vehiclemodel.RIGHTTURNLEFT) <= vehiclemodel.RIGHTTURNLEFTWC);
                 Msg(labelrlpd, panelrlpd, rightturnleftpd ? "○" : "×", 0, rightturnleftpd ? Color.Lime : Color.Red);
                 Msg(labelOrder3, panelOrder3, "右打方向", 0);
                 stablecount = 0;
@@ -294,7 +313,7 @@ namespace childTest
                 }
                 Msg(labelOrder3, panelOrder3, "向右打方向盘", 0);
                 stablecount = 0;
-                while (stablecount < 40)//大于5度2秒以上
+                while (stablecount < TURNTIME)//大于5度2秒以上
                 {
                     leftangle = controller.angleLeft;
                     rightangle = controller.angleRight;
@@ -321,16 +340,20 @@ namespace childTest
                         }
                         else//在检验模式下，要等到连续两秒左盘没有超过目前最大值时认为稳定
                         {
-                            if (rightangle > rightturnright)
-                            {
-                                rightturnright = rightangle;
-                                leftturnright = leftangle;
-                                stablecount = 0;
-                            }
-                            else
-                            {
-                                stablecount++;
-                            }
+                            /* if (rightangle > rightturnright)
+                             {
+                                 rightturnright = rightangle;
+                                 leftturnright = leftangle;
+                                 stablecount = 0;
+                             }
+                             else
+                             {
+                                 stablecount++;
+                             }*/
+                            rightturnright = rightangle;
+                            leftturnright = leftangle;
+                            stablecount ++;
+
                         }
                         Msg(labelLzrldata, panelLzrldata, leftturnright.ToString("0.0"), 0, Math.Abs(-leftturnright - vehiclemodel.LEFTTURNRIGHT) <= vehiclemodel.LEFTTURNRIGHTWC ? Color.Lime : Color.Red);
                         Msg(labelRzrldata, panelRzrldata, rightturnright.ToString("0.0"), 0, Math.Abs(rightturnright - vehiclemodel.RIGHTTURNRIGHT) <= vehiclemodel.RIGHTTURNRIGHTWC ? Color.Lime : Color.Red);
@@ -339,7 +362,7 @@ namespace childTest
                 }
                 stablecount = 0;
                 Msg(labelOrder3, panelOrder3, "稳定1秒", 0);
-                while (stablecount < 20)
+                while (stablecount < STABLETIME)
                 {
                     leftangle = controller.angleLeft;
                     rightangle = controller.angleRight;
@@ -366,7 +389,7 @@ namespace childTest
                         }
                         else//在检验模式下，要等到连续两秒左盘没有超过目前最大值时认为稳定
                         {
-                            if (rightangle > rightturnright)
+                            /*if (rightangle > rightturnright)
                             {
                                 rightturnright = rightangle;
                                 leftturnright = leftangle;
@@ -375,7 +398,10 @@ namespace childTest
                             else
                             {
                                 stablecount++;
-                            }
+                            }*/
+                            rightturnright = rightangle;
+                            leftturnright = leftangle;
+                            stablecount++;
                         }
                         Msg(labelLzrldata, panelLzrldata, leftturnright.ToString("0.0"), 0, Math.Abs(-leftturnright - vehiclemodel.LEFTTURNRIGHT) <= vehiclemodel.LEFTTURNRIGHTWC ? Color.Lime : Color.Red);
                         Msg(labelRzrldata, panelRzrldata, rightturnright.ToString("0.0"), 0, Math.Abs(rightturnright - vehiclemodel.RIGHTTURNRIGHT) <= vehiclemodel.RIGHTTURNRIGHTWC ? Color.Lime : Color.Red);
@@ -388,7 +414,7 @@ namespace childTest
                 Msg(labelrrpd, panelrrpd, rightturnrightpd ? "○" : "×", 0, rightturnrightpd ? Color.Lime : Color.Red);
                 Msg(labelOrder3, panelOrder3, "请回零", 0);
                 stablecount = 0;
-                while (stablecount<20)//当左盘和右盘均回到规定的回零限值后
+                while (stablecount<ZEROTIME)//当左盘和右盘均回到规定的回零限值后
                 {
                     leftangle = controller.angleLeft;
                     rightangle = controller.angleRight;
@@ -442,11 +468,12 @@ namespace childTest
                     }
                 }
                 stablecount = 0;
-                while(stablecount<20)//车离开光电累计1秒后，检测流程退出 
+                /*while(stablecount<20)//车离开光电累计1秒后，检测流程退出 
                 {
                     if (!controller.isCarAlready) stablecount++;
                     Thread.Sleep(50);
-                }
+                }*/
+                Thread.Sleep(1500);
                 controller.scanState = 0;
                 CloseForm();
             }

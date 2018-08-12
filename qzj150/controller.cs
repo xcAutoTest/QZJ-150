@@ -24,6 +24,9 @@ namespace childTest
         public static byte gd_chanel_leftzero = 1;
         public static byte gd_chanel_rightzero = 2;
         public static double zero_xz = 3;//回零限值
+        public static double turn_time = 3;
+        public static double stable_time = 1;
+        public static double zero_time = 2;
         public static double left_pulse = 2500;
         public static double right_pulse = 2500;
         public enum ENUM_WORDMODE { WORKMODE_TEST,WORKMODE_DEBUG};
@@ -116,6 +119,12 @@ namespace childTest
                 workMode = (ENUM_WORDMODE)(int.Parse(temp.ToString()));
                 ini.INIIO.GetPrivateProfileString("QZJ", "ZERO", "3", temp, 2048, @".\appConfig.ini");
                 zero_xz = double.Parse(temp.ToString());
+                ini.INIIO.GetPrivateProfileString("QZJ", "TURN_TIME", "6", temp, 2048, @".\appConfig.ini");
+                turn_time = double.Parse(temp.ToString());
+                ini.INIIO.GetPrivateProfileString("QZJ", "STABLE_TIME", "2", temp, 2048, @".\appConfig.ini");
+                stable_time = double.Parse(temp.ToString());
+                ini.INIIO.GetPrivateProfileString("QZJ", "ZERO_TIME", "2", temp, 2048, @".\appConfig.ini");
+                zero_time = double.Parse(temp.ToString());
                 ini.INIIO.GetPrivateProfileString("QZJ", "LEFT_PULSE", "2500", temp, 2048, @".\appConfig.ini");
                 left_pulse = double.Parse(temp.ToString());
                 ini.INIIO.GetPrivateProfileString("QZJ", "RIGHT_PULSE", "2500", temp, 2048, @".\appConfig.ini");
@@ -169,6 +178,12 @@ namespace childTest
                 workMode = (ENUM_WORDMODE)(int.Parse(temp.ToString()));
                 ini.INIIO.GetPrivateProfileString("QZJ", "ZERO", "3", temp, 2048, @".\appConfig.ini");
                 zero_xz = double.Parse(temp.ToString());
+                ini.INIIO.GetPrivateProfileString("QZJ", "TURN_TIME", "6", temp, 2048, @".\appConfig.ini");
+                turn_time = double.Parse(temp.ToString());
+                ini.INIIO.GetPrivateProfileString("QZJ", "STABLE_TIME", "2", temp, 2048, @".\appConfig.ini");
+                stable_time = double.Parse(temp.ToString());
+                ini.INIIO.GetPrivateProfileString("QZJ", "ZERO_TIME", "2", temp, 2048, @".\appConfig.ini");
+                zero_time = double.Parse(temp.ToString());
                 ini.INIIO.GetPrivateProfileString("QZJ", "LEFT_PULSE", "2500", temp, 2048, @".\appConfig.ini");
                 left_pulse = double.Parse(temp.ToString());
                 ini.INIIO.GetPrivateProfileString("QZJ", "RIGHT_PULSE", "2500", temp, 2048, @".\appConfig.ini");
